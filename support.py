@@ -75,11 +75,11 @@ def choose_many_from_list (lst):
         
     while len(index_lst)<len(lst): # The loop ends when all list items were choosen, or when user enters 0.  
         for index, item in enumerate(lst):
-            print ("\t{} - {}".format(index + 1, item),)
+            print ("\t{} - {}".format(index + 1, item), end=" ")
             if index in index_lst:
                 print (" (Selected)")
             else: 
-                print 
+                print ()
         allowed_ints = [i for i in range(len(lst)+1) if (i-1) not in index_lst]
         index = int_input_in_lst("Add an option by number, or enter 0 to continue:\t", allowed_ints) - 1
         if index ==-1: 

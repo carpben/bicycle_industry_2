@@ -1,7 +1,28 @@
-import bicycle_industry
+class Model(object):
+    def __init__(self, name, category, description, colors, sizes):
+        self.name = name
+        self.category = category
+        self.description = description
+        self.colors = colors
+        self.sizes = sizes
+
+    def __str__(self):
+
+        model = "MODEL NAME: {}\t CATEGORY: {}\t DESCRIPTION: {}".format(self.name, self.category, self.description)
+
+        colors = "COLOR SELECTION:"
+        for color in self.colors:
+            colors += "\t{}".format(color)
+
+        sizes = ""
+        for size, details in self.sizes.items():
+            s = "SIZE: {}\t WEIGHT: {} Kg\t COST: {} US$\n"
+            sizes += s.format(size, details['weight'], details['price'])
+            
+        return "{}\n{}\n{}".format(model, colors, sizes)
 
 def sample_model_library (models):
-    models['H1'] = bicycle_industry.Model(
+    models['H1'] = Model(
         'H1',
         'HighWay',
         'Fine, Lights, Stable.',
@@ -18,7 +39,7 @@ def sample_model_library (models):
         }
     )
 
-    bicycle_industry.models['Mountain 100'] = bicycle_industry.Model(
+    models['Mountain 100'] = Model(
         'Mountain 100',
         'Mountain',
         'Good, Shock absorber.',
@@ -35,7 +56,7 @@ def sample_model_library (models):
         }
     )
 
-    bicycle_industry.models['M1'] = bicycle_industry.Model(
+    models['M1'] = Model(
         'M1',
         'Mountain',
         'Fine, Shock absorber.',
@@ -46,7 +67,7 @@ def sample_model_library (models):
         }
     )
 
-    bicycle_industry.models['City 100'] = bicycle_industry.Model(
+    models['City 100'] = Model(
         'City 100',
         'City',
         'Good, Stable.',
@@ -57,7 +78,7 @@ def sample_model_library (models):
         }
     )
 
-    bicycle_industry.models['C1'] = bicycle_industry.Model(
+    models['C1'] = Model(
         'C1',
         'City',
         'Fine, Stable.',
@@ -68,7 +89,7 @@ def sample_model_library (models):
         }
     )
 
-    bicycle_industry.models['Highway 100'] = bicycle_industry.Model(
+    models['Highway 100'] = Model(
         'Highway 100',
         'HighWay',
         'Good, Lights, Stable.',
